@@ -1,4 +1,4 @@
-# Terms of Service for [Project Name]
+# Terms of Service for GoogleCalendarOnWallFree
 
 ## 1. Acceptance of Terms
 
@@ -47,5 +47,4 @@ These Terms shall be governed by and construed in accordance with the laws of [Y
 
 If you have any questions about these Terms, please open an issue in the GitHub repository.
 
-Last updated: [Date]
 
