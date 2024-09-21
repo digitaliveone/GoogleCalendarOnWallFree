@@ -1,4 +1,4 @@
-# Privacy Policy for [Project Name]
+# Privacy Policy for GoogleCalendarOnWallFree
 
 ## 1. Information Collection
 
@@ -28,5 +28,4 @@ We may update this privacy policy from time to time. We will notify users of any
 
 If you have any questions about this privacy policy, please open an issue in the GitHub repository.
 
-Last updated: [Date]
 
