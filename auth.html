@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Auth Redirect</title>
+    <script>
+        function getParameterByName(name) {
+            var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        }
+
+        window.onload = function() {
+            var code = getParameterByName('code');
+            if (code) {
+                document.getElementById('message').innerText = 'Auth code received. You can close this window now.';
+                fetch('https://api.github.com/repos/yourusername/your-repo-name/contents/authcode.txt', {
+                    method: 'PUT',
+                    headers: {
+                        'Authorization': 'token YOUR_GITHUB_PERSONAL_ACCESS_TOKEN',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        message: 'Update auth code',
+                        content: btoa(code),
+                        sha: 'CURRENT_FILE_SHA' // You'll need to update this when the file changes
+                    })
+                }).then(response => {
+                    if (response.ok) {
+                        console.log('Auth code saved successfully');
+                    } else {
+                        console.error('Failed to save auth code');
+                    }
+                });
+            } else {
+                document.getElementById('message').innerText = 'No auth code found in URL.';
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Auth Redirect</h1>
+    <p id="message">Processing...</p>
+</body>
+</html>
